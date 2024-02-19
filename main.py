@@ -18,7 +18,10 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 from pydantic import BaseModel
 
+
+
 app=FastAPI()
+
 
 
 
@@ -52,6 +55,14 @@ class User(BaseModel):
 
 class UserInDB(User):
     hashed_password:str
+
+# pwd_context= CryptContext(schemes=['bcrypt'],deprecated='auto')
+
+# def verify_password(plain_password, hashed_password):
+#     return pwd_context.verify(plain_password,hashed_password)
+
+# def get_password_hash(password):
+#     return pwd_context.hash(password)
 
 def get_user(db,username:str):
     if username in db:
