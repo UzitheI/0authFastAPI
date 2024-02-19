@@ -20,7 +20,7 @@ from pydantic import BaseModel
 
 app=FastAPI()
 
-oauth2_scheme=OAuth2PasswordBearer(tokenUrl='token')
+
 
 fake_users_db = {
     "johndoe": {
