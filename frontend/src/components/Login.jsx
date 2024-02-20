@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { setToken,fetchToken } from "./Auth";
 
 function Login() {
   const navigate = useNavigate();
@@ -26,7 +27,10 @@ function Login() {
             alert('login failed')
           }
           else{
-            navigate('/profile');
+            if(res.data.token){
+                setToken(res.data.token)
+                navigate('/profile');
+            };
           }
         })
         .catch((err) => console.log("axios", err));
@@ -35,6 +39,10 @@ function Login() {
   return (
     <div className="p-20">
       <div className="text-2xl flex justify-center pb-8">Login</div>
+      <div>
+        {
+        fetchToken()?(<p>You are logged in!</p>):(<p>Please Login.</p>)}
+      </div>
       <form action="" className="flex flex-col p-4 space-y-8">
         <div>
           <label htmlFor="Username">Username</label>
