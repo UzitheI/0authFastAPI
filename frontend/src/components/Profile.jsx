@@ -8,12 +8,12 @@ function Profile() {
     navigate('/');
   }
   return (
-    <div>
+    <div className='p-20 flex flex-col bg-blue-400 space-y-3'>
 
-    <div>Profile</div>
-    <p>this is your profile </p>
+    <div className='flex justify-center text-3xl'>Profile</div>
+    <p className='text-1xl'>this is your profile </p>
     <div>
-      <button type='button' onClick={signOut}>Sign Out</button>
+      <button type='button' onClick={signOut} className='border border-black p-4 bg-red-500 rounded-lg '>Sign Out</button>
     </div>
     </div>
   )
