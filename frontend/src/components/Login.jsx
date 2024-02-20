@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { setToken,fetchToken } from "./Auth";
+import { setToken,fetchToken } from "./RequireToken";
 
 function Login() {
   const navigate = useNavigate();
@@ -37,25 +37,27 @@ function Login() {
     }
   };
   return (
-    <div className="p-20">
-      <div className="text-2xl flex justify-center pb-8">Login</div>
-      <div>
+    <div className="p-10 flex flex-col bg-blue-400 ">
+      <div className="text-2xl flex justify-center pb-8">Login Form</div>
+      <div className="flex justify-center p-10 flex-col">
+
+      <div className="bg-green-200 flex justify-center text-3xl">
         {
-        fetchToken()?(<p>You are logged in!</p>):(<p>Please Login.</p>)}
+          fetchToken()?(<p>You are logged in!</p>):(<p>Please Login.</p>)}
       </div>
       <form action="" className="flex flex-col p-4 space-y-8">
         <div>
-          <label htmlFor="Username">Username</label>
+          <label htmlFor="Username" className="text-2xl flex flex-col">Username:</label>
           <input
             type="text"
             name="username"
             className="border border-black"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
+            />
         </div>
         <div>
-          <label htmlFor="password">password</label>
+          <label htmlFor="password" className="text-2xl flex flex-col">Password:</label>
           <input
             type="text"
             name="password"
@@ -65,14 +67,15 @@ function Login() {
           />
         </div>
         <div>
-          <input
+          <button
             type="button"
             name="submit"
             onClick={handleSubmit}
-            className="border border-black p-8"
-          />
+            className="border border-black p-4 w-20 bg-green-600 inline-block mb-2 "
+            >Enter</button>
         </div>
       </form>
+            </div>
     </div>
   );
 }
