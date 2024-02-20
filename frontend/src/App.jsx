@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter,Route,Routes,Link } from 'react-router-dom';
 import Login from './components/Login'
 import Profile from './components/Profile'
-import {RequireToken} from './components/Auth'
+import RequireToken from './components/RequireToken'
 
 
 function App(){
