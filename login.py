@@ -43,4 +43,4 @@ async def login_user(login_item:LoginClass):
         encoded_jwt=jwt.encode(data,SECRET_KEY,algorithm=ALGORITHM)
         return {'token':encoded_jwt,'data':'success'}
     else:
-        return {'msg':'login failed'}
+        return {'data':'login failed'}
